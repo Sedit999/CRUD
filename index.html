@@ -1,12 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="./img/logo.png">
+    <title>ListaDeCompras</title>
 </head>
 <body>
-    
+    <header>
+        <img id="logo" src="./img/logo.png" alt="logo">
+        <div>
+            <h2>Lista de Compras</h2>
+        </div>
+        <div>
+            <button id="nLista" class="boton">Nueva Lista</button>
+        </div>
+    </header>
+    <main>
+        <div id="informacion">
+            <h1>HAZ TU LISTA DE COMPRAS</h1>
+            <h3>Fácil y Rápido</h3>
+            <p>Con la ayuda de esta lista no volveras a olvidar comprar alguno de los articulos que habías pensado</p>
+        </div>  
+        <div id="ingresarDatos">
+            <div>Producto</div>
+            <input id="articulo" type="text" name="articulo" placeholder="Ingresa tu producto">
+            <button id="agregar" class="boton iBoton">Agregar articulo</button>
+            <button id="editar" class="boton iBoton">Editar</button>
+        </div>
+        <div id="listas">
+            <div id="listaPorComprar">
+                <h3>Por comprar</h3>
+                <ul id="listaCompras"><br></ul>
+                <!--Se debe colocar un formato de esta forma para que se vea bien:
+                    <li>prueba</li><hr><br>
+                    add boton borrar
+                    add boton editar
+                    add boton comprado
+                -->
+            </div>
+            <div id="listaComprado">
+                <h3>Comprado</h3>
+                <ul id="comprado"><br></ul>
+            </div>
+            <div></div>
+        </div>
+    </main>
+    <footer>
+        <p>Balancea tu dieta diariamente y compra sabiamente</p>
+        <p>Created by Sedit999</p>
+    </footer>
+    <script src="index.js"></script>
 </body>
 </html>
