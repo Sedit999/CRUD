@@ -24,22 +24,21 @@ let items = listaDeArticulos.map((e) => {
             </li>`
 })
 listaCompras.innerHTML = items.join('')
-document.getElementById('listaCompras').appendChild(listaCompras)
+
 
 //agregar a comprado
-//aún no funciona, no entiendo la razón
 let listaComprados = document.getElementById('comprado')
 let addComprados = JSON.parse(localStorage.getItem('listaComprado'))
 let itemsComprados = addComprados.map((e) => {
     return `<br><li id="producto">
                 <div id="contenido">${e.articulo}</div>
-                <div id="btns_producto">
-                    <button id="borrar" class="btn_lista iBoton">Regresar</button>
+                <div>
+                    <button id="borrar" class="btn_lista iBoton" onclick="regresar('${e.id}')">Regresar</button>
                 </div>
             </li>`
 })
 listaComprados.innerHTML = itemsComprados.join('')
-document.getElementById('comprado').appendChild(listaComprados)
+
 
 function agregarArticulo(){
     let articuloAgregado = JSON.parse(localStorage.getItem('listaDeCompras'))
@@ -113,6 +112,22 @@ function editar(id){
     localStorage.setItem('listaDeCompras', JSON.stringify(articuloEditado))
     document.getElementById('articulo').value = ''
     window.location.reload() 
+}
+function regresar(id){
+    let articulo_listaComprado = JSON.parse(localStorage.getItem('listaComprado'))
+    let articuloComprado = JSON.parse(localStorage.getItem('listaDeCompras')) 
+    let artComprado;
+    for (let i = 0; i<=articulo_listaComprado.length-1; i++){
+        if(articulo_listaComprado[i].id == id){
+            artComprado = articulo_listaComprado[i]
+            articulo_listaComprado.splice(i, 1)
+        }
+    }
+    localStorage.setItem('listaComprado', JSON.stringify(articulo_listaComprado))
+    articuloComprado.push(artComprado)
+    localStorage.setItem('listaDeCompras', JSON.stringify(articuloComprado))
+    document.getElementById('articulo').value = ''
+    window.location.reload()
 }
 function borrarActual() {
     localStorage.clear()
